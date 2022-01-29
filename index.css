@@ -1,0 +1,216 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  padding: 0px;
+  margin: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: #2e2e2e;
+  min-height: 100%;
+  position: relative;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.bg {
+  background: #2e2e2e;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top center;
+  background-size: cover;
+  position: fixed;
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.centered-horizontal {
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  font-size: 4vw;
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.text {
+  font-size: 3vw;
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  flex-direction: row;
+  transition: all 0.5s ease-in-out;
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.grid :hover,
+.grid :focus,
+.grid :active {
+  transform: scale(1.1);
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.grid * :hover {
+  transform: scale(1);
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 30%;
+  color: #2e2e2e;
+}
+.card :hover,
+.card :focus,
+.card :active {
+  color: #0070f3;
+  border-color: #0070f3;
+  transform: scale(1.1);
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.card * :hover {
+  transform: scale(1);
+}
+
+.social-end:hover {
+  transform: scale(6.8);
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.social {
+  margin: 56px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  color: #ffffff;
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.15);
+}
+.social i {
+  transform: scale(6);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes modal-animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #000;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+.modal-content h3,
+.modal-content p {
+  text-align: center;
+}
+
+.modal-close {
+  color: #888888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 0.5;
+  padding-top: 0px;
+}
+.modal-close :hover,
+.modal-close :focus {
+  color: #000;
+  text-decoration: none;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+  line-height: 1.5;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+}
+
+li {
+  font-size: 1.5vw;
+  text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    font-size: 8vw;
+  }
+
+  .text {
+    font-size: 6vw;
+  }
+}
+input[type=text] {
+  min-width: 50px !important;
+  max-width: 99.99% !important;
+  transition: width 0.25s;
+  text-align: center;
+}

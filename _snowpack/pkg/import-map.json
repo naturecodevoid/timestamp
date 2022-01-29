@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "dayjs": "./dayjs.js",
+    "dayjs/plugin/advancedFormat": "./dayjs/plugin/advancedFormat.js",
+    "dayjs/plugin/customParseFormat": "./dayjs/plugin/customParseFormat.js",
+    "dayjs/plugin/relativeTime": "./dayjs/plugin/relativeTime.js",
+    "dayjs/plugin/timezone": "./dayjs/plugin/timezone.js",
+    "dayjs/plugin/utc": "./dayjs/plugin/utc.js"
+  }
+}
