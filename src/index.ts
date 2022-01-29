@@ -6,7 +6,7 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import relativeTime from "dayjs/plugin/relativeTime";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 
-{
+window.addEventListener("load", () => {
     dayjs.extend(utc);
     dayjs.extend(timezone);
     dayjs.extend(advancedFormat);
@@ -157,43 +157,41 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
     const showOther = window.location.hash.includes("o") || false;
     tryToReadTimestamp(unix, showOther);
 
-    window.addEventListener("load", () => {
-        const date = $("date") as HTMLInputElement;
-        const time = $("time") as HTMLInputElement;
-        const output = $("output2") as HTMLInputElement;
-        const share = $("share") as HTMLInputElement;
+    const date = $("date") as HTMLInputElement;
+    const time = $("time") as HTMLInputElement;
+    const output = $("output2") as HTMLInputElement;
+    const share = $("share") as HTMLInputElement;
 
-        // https://stackoverflow.com/a/48056895
-        function resizable(el: any, factor: any) {
-            var int = Number(factor) || 7.7;
-            function resize() {
-                el.style.width = (el.value.length + 1) * int + "px";
-            }
-            var e = "keyup,keypress,focus,blur,change,input".split(",");
-            for (var i in e) el.addEventListener(e[i], resize, false);
-            resize();
+    // https://stackoverflow.com/a/48056895
+    function resizable(el: any, factor: any) {
+        var int = Number(factor) || 7.7;
+        function resize() {
+            el.style.width = (el.value.length + 1) * int + "px";
         }
-        resizable(output, 7);
-        resizable(share, 7);
+        var e = "keyup,keypress,focus,blur,change,input".split(",");
+        for (var i in e) el.addEventListener(e[i], resize, false);
+        resize();
+    }
+    resizable(output, 7);
+    resizable(share, 7);
 
-        const update = () => {
-            output.value = dayjs(date.value + " " + time.value, "YYYY-MM-DD hh:mm:ss")
-                .unix()
-                .toString();
-            share.value = "https://timestamp.naturecodevoid.dev/" + output.value;
-            const e = new Event("input", { bubbles: true });
-            output.dispatchEvent(e);
-            share.dispatchEvent(e);
-        };
+    const update = () => {
+        output.value = dayjs(date.value + " " + time.value, "YYYY-MM-DD hh:mm:ss")
+            .unix()
+            .toString();
+        share.value = "https://timestamp.naturecodevoid.dev/" + output.value;
+        const e = new Event("input", { bubbles: true });
+        output.dispatchEvent(e);
+        share.dispatchEvent(e);
+    };
 
-        date.value = util.current.format("YYYY-MM-DD");
-        time.value = util.current.format("hh:mm:ss");
+    date.value = util.current.format("YYYY-MM-DD");
+    time.value = util.current.format("hh:mm:ss");
 
-        update();
+    update();
 
-        $("date")?.addEventListener("input", update);
-        $("time")?.addEventListener("input", update);
-    });
-}
+    $("date")?.addEventListener("input", update);
+    $("time")?.addEventListener("input", update);
+});
 
 export {};
