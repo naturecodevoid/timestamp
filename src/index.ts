@@ -176,7 +176,10 @@ window.addEventListener("load", () => {
     resizable(share, 7);
 
     const update = () => {
-        output.value = dayjs(date.value + " " + time.value, "YYYY-MM-DD hh:mm:ss")
+        output.value = dayjs(
+            date.value + " " + time.value,
+            "YYYY-MM-DD " + (time.value.split(":").length > 2 ? "hh:mm:ss" : "hh:mm"),
+        )
             .unix()
             .toString();
         share.value = "https://timestamp.naturecodevoid.dev/" + output.value;
